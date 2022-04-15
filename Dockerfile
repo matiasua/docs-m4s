@@ -7,14 +7,13 @@ ENV NPM_CONFIG_COLOR=false
 WORKDIR /app
 
 # Copy the source code over
-COPY --chown=node:node . /app/
+COPY --chown=node:node . /app
 
 ## Development #################################################################
 FROM base as development
 WORKDIR /app
 # Install (not ci) with dependencies, and for Linux vs. Linux Musl (which we use for -alpine)
 RUN npm install
-
 # Switch to the node user vs. root
 USER node
 # Expose port 3000
