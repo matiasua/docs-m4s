@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  docs-m4s:
+    build:
+      context: .
+      target: development
+    command: npm start
+    ports:
+      - 3005:3000
+    volumes:
+      - ./:/app
+      - /app/node_modules
